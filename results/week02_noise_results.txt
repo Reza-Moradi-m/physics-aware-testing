@@ -1,0 +1,18 @@
+Week 02 – Physics-Aware AI Testing (Sensor Noise)
+
+Generated: 2026-01-23T16:48:28
+
+Baseline (no constraints): 0.9778
+Baseline (std=0.0): 0.9778
+
+Noise sweep (Gaussian noise added to test inputs):
+std=0.0 -> accuracy=0.9778
+std=0.1 -> accuracy=0.9800
+std=0.2 -> accuracy=0.9800
+std=0.3 -> accuracy=0.9778
+std=0.5 -> accuracy=0.9667
+std=0.8 -> accuracy=0.9356
+std=1.0 -> accuracy=0.9111
+
+Observation:
+Accuracy decreases as sensor noise increases, revealing robustness limits that baseline accuracy testing does not capture.
