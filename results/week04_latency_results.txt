@@ -1,0 +1,14 @@
+Week 04 – Physics-Aware AI Testing (Latency + Timeouts)
+
+Generated: 2026-01-30T16:23:51
+
+Baseline (no constraints): 0.9778
+
+Latency sweep (delay with timeout/drop effects):
+delay_ms=0 -> raw=0.9778 effective=0.9311 (failed=4.67%, dropped=4.67%, timed_out=0.00%)
+delay_ms=50 -> raw=0.9778 effective=0.9311 (failed=4.67%, dropped=4.67%, timed_out=0.00%)
+delay_ms=100 -> raw=0.9778 effective=0.9311 (failed=4.67%, dropped=4.67%, timed_out=0.00%)
+delay_ms=200 -> raw=0.9778 effective=0.0000 (failed=100.00%, dropped=4.67%, timed_out=100.00%)
+
+Observation:
+Unlike a pure sleep(), this latency model affects correctness by treating timeouts and dropped samples as failures. This better matches real systems where missing deadlines is a functional failure.

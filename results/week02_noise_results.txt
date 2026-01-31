@@ -1,6 +1,6 @@
 Week 02 – Physics-Aware AI Testing (Sensor Noise)
 
-Generated: 2026-01-23T16:48:28
+Generated: 2026-01-30T16:23:51
 
 Baseline (no constraints): 0.9778
 Baseline (std=0.0): 0.9778
