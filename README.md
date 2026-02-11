@@ -120,3 +120,12 @@ Future updates will be appended below this section.
 - Automated robustness tests: complete  
 - Visualization and reporting: complete  
 - Framework extensibility: ready  #
+
+
+Interpretation of Results on latency_boundary plot
+
+The latency boundary experiment reveals that model performance does not degrade gradually with increasing delay. Instead, the system exhibits a sharp failure threshold near the deadline constraint (120 ms). Below this threshold, effective accuracy remains high and stable. However, once average latency approaches the timeout, the effective accuracy rapidly collapses to near zero.
+
+This behavior occurs because predictions that arrive after the deadline are functionally useless even if they are mathematically correct. The model itself continues to produce accurate classifications, but the system cannot utilize them in time. Therefore, real-world AI systems must be evaluated not only on prediction accuracy but also on timing constraints.
+
+The results demonstrate that machine learning accuracy alone is insufficient to measure reliability in cyber-physical systems. Real-time deadlines introduce a failure boundary where system performance transitions abruptly from reliable to unusable.

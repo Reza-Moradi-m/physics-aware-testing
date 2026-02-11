@@ -117,7 +117,7 @@ def evaluate_with_latency_effects(
 
 
 # -------------------------
-# NEW: Staleness
+# Staleness
 # -------------------------
 def evaluate_with_staleness(
     delay_ms: int,
@@ -227,6 +227,90 @@ def evaluate_with_noise_latency_staleness(
     return {
         "raw_accuracy": raw_acc,
         "effective_accuracy": effective_acc,
+        "failed_frac": failed_frac,
+        "dropped_frac": float(dropped_mask.mean()),
+        "timed_out_frac": float(timed_out_mask.mean()),
+    }
+
+
+# -------------------------
+# Week 05 NEW: Control Safety Margin
+# -------------------------
+def evaluate_control_safety_margin(
+    delay_ms: int,
+    timeout_ms: int,
+    drop_rate: float,
+    tolerance: float,
+    noise_std: float = 0.0,
+    drift_per_ms: float = 0.0,
+    seed: int = 0,
+    random_state: int = 42,
+) -> dict[str, float]:
+    """
+    Control-safety metric (CPS idea):
+      - Convert prediction into a continuous control signal u = P(class=1)
+      - Desired control is y in {0,1}
+      - Safe if abs(u - y) <= tolerance
+      - Then apply latency drops/timeouts as unsafe (effective safety)
+
+    Returns:
+      - raw_accuracy / effective_accuracy (same as before)
+      - safety_rate: fraction safe ignoring latency failures
+      - effective_safety_rate: fraction safe after drops/timeouts
+    """
+    if not (0.0 <= tolerance <= 1.0):
+        raise ValueError("tolerance must be between 0 and 1")
+
+    model, X_test, y_test = train_model(random_state=random_state)
+
+    # Physics on inputs (optional)
+    X_phys = np.asarray(X_test, dtype=float)
+    if noise_std > 0:
+        X_phys = apply_noise(X_phys, std=noise_std, seed=seed)
+    if drift_per_ms > 0 and delay_ms > 0:
+        X_phys = apply_staleness(X_phys, delay_ms=delay_ms, drift_per_ms=drift_per_ms, seed=seed)
+
+    # Discrete preds for accuracy
+    preds = model.predict(X_phys)
+    raw_acc = float(accuracy_score(y_test, preds))
+
+    # Continuous control signal u in [0,1]
+    proba = model.predict_proba(X_phys)[:, 1]
+    u = np.asarray(proba, dtype=float)
+
+    y = np.asarray(y_test, dtype=float)
+    safe_mask = np.abs(u - y) <= tolerance
+    safety_rate = float(safe_mask.mean())
+
+    # Latency failures
+    sim: dict[str, Any] = simulate_latency(
+        n_samples=len(y_test),
+        delay_ms=delay_ms,
+        timeout_ms=timeout_ms,
+        drop_rate=drop_rate,
+        seed=seed,
+    )
+    dropped_mask = np.asarray(sim["dropped_mask"], dtype=bool)
+    timed_out_mask = np.asarray(sim["timed_out_mask"], dtype=bool)
+    failed_mask = dropped_mask | timed_out_mask
+
+    # Effective accuracy
+    effective_correct = (preds == y_test).copy()
+    effective_correct[failed_mask] = False
+    effective_acc = float(effective_correct.mean())
+
+    # Effective safety: latency failures are unsafe
+    effective_safe = safe_mask.copy()
+    effective_safe[failed_mask] = False
+    effective_safety_rate = float(effective_safe.mean())
+
+    failed_frac = float(failed_mask.mean())
+
+    return {
+        "raw_accuracy": raw_acc,
+        "effective_accuracy": effective_acc,
+        "safety_rate": safety_rate,
+        "effective_safety_rate": effective_safety_rate,
         "failed_frac": failed_frac,
         "dropped_frac": float(dropped_mask.mean()),
         "timed_out_frac": float(timed_out_mask.mean()),
