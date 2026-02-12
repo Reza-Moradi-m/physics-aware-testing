@@ -1,0 +1,25 @@
+test_name,param,raw_accuracy,effective_accuracy,notes
+baseline,-,0.8816666666666667,0.8816666666666667,"PyTorch MLP (train_acc=0.8807, test_acc=0.8817)"
+noise,std=0.0,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+noise,std=0.1,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+noise,std=0.2,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+noise,std=0.5,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+noise,std=0.8,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+latency_effects,delay_ms=0,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+latency_effects,delay_ms=50,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+latency_effects,delay_ms=100,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+latency_effects,delay_ms=150,0.8816666666666667,0.0,drop+timeout counted as failures
+latency_effects,delay_ms=200,0.8816666666666667,0.0,drop+timeout counted as failures
+staleness,"slow: delay=0, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"fast: delay=0, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"slow: delay=50, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"fast: delay=50, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"slow: delay=100, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"fast: delay=100, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"slow: delay=200, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"fast: delay=200, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"slow: delay=300, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+staleness,"fast: delay=300, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+failure_mode,intermittent_dropout=0.03,0.8816666666666667,0.8816666666666667,rows zeroed out
+failure_mode,stuck_at_value=0.03,0.8816666666666667,0.8816666666666667,rows repeat previous
+failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.8816666666666667,0.8816666666666667,systematic bias
