@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  test-and-badge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+          if [ -f requirements-dev.txt ]; then python3 -m pip install -r requirements-dev.txt; fi
+          python3 -m pip install pytest
+
+      - name: Run tests
+        run: |
+          pytest -q
+
+      # Run your product pipeline to produce results/week06_report.md + results/*.csv + results/master_dashboard.png
+      # NOTE: We allow non-zero exit (Safety Gate) so the workflow still finishes and can publish badge JSON.
+      - name: Run product audit (generates report)
+        run: |
+          python3 run_product.py || true
+
+      # Generate a Shields.io compatible JSON file.
+      # This script should write to the path passed via --out.
+      - name: Build Safety Grade badge JSON
+        run: |
+          mkdir -p tmp
+          python3 scripts/make_safety_badge.py --report results/week06_report.md --out tmp/safety-badge.json
+
+      # Publish the badge JSON to a dedicated orphan "badges" branch so it only contains badge artifacts.
+      - name: Publish badge JSON to badges branch
+        if: github.event_name == 'push'
+        run: |
+          test -f tmp/safety-badge.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create an orphan branch so "badges" doesn't become a copy of main
+          git checkout --orphan badges
+          git rm -rf . || true
+
+          mkdir -p badges
+          cp tmp/safety-badge.json badges/safety-badge.json
+
+          git add badges/safety-badge.json
+          git commit -m "Update safety grade badge" || echo "No changes to commit"
+          git push -f origin badges
