@@ -1,6 +1,6 @@
 # Week 06 – Smart Factory Model Reliability Report (Startup Demo)
 
-Generated: 2026-02-11T17:07:03
+Generated: 2026-02-19T14:20:05
 
 ## Summary
 
@@ -11,7 +11,7 @@ Safety Grade: **F** (worst effective accuracy=0.0000)
 ## Positives
 
 - Baseline accuracy on Smart Factory CSV: **0.8817**
-- Runs physics stress tests: noise, latency(drop/timeout), staleness(slow/fast), and failure modes.
+- Runs stress tests: noise, latency(drop/timeout), staleness(slow/fast), and failure modes.
 - Produces an Operating Envelope grid (noise vs latency) with PASS/FAIL boundary.
 
 ## Issues / Concerns
@@ -25,10 +25,10 @@ Safety Grade: **F** (worst effective accuracy=0.0000)
 - The Operating Envelope shows safe vs unsafe regions:
   - X-axis: latency delay
   - Y-axis: noise level
-  - Cell color (in dashboard) indicates PASS/FAIL based on effective accuracy threshold.
+  - PASS/FAIL uses the effective-accuracy threshold.
 
 ## Artifacts
 
 - Results CSV: `results/week06_product_demo_results.csv`
 - Envelope CSV: `results/week06_operating_envelope.csv`
-- Dashboard: `results/master_dashboard.png` (generated next)
+- Dashboard: `results/master_dashboard.png`
