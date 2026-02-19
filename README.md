@@ -1,3 +1,5 @@
+![CI](https://github.com/Reza-Moradi-m/physics-aware-testing/actions/workflows/ci.yml/badge.svg?branch=main)
+![Safety Grade](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Reza-Moradi-m/physics-aware-testing/badges/badges/safety-badge.json)
 # RobustAI Engine
 
 ![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
