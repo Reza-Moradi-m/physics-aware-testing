@@ -1,8 +1,341 @@
 {
-  "profile": "industrial_wifi",
-  "threshold": 0.75,
-  "baseline_accuracy": 0.8816666666666667,
-  "worst_effective_accuracy": 0.0,
-  "safe_zone_fraction": 0.6,
-  "envelope_csv": "results/week06_operating_envelope.csv"
+  "generated_at": "2026-03-21T21:43:09.228592",
+  "rows": [
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "clean",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9505622334238076,
+      "delta": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9507561070182241,
+      "delta": -0.00019387359441647156
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9499806126405583,
+      "delta": 0.0005816207832493037
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9490112446684762,
+      "delta": 0.0015509887553314394
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9488173710740597,
+      "delta": 0.001744862349747911
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9507561070182241,
+      "delta": -0.00019387359441647156
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9507561070182241,
+      "delta": -0.00019387359441647156
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9048080651415277,
+      "delta": 0.04575416828227996
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0007754943776656642
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9503683598293913,
+      "delta": 0.00019387359441636054
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.8497479643272586,
+      "delta": 0.100814269096549
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9482357502908104,
+      "delta": 0.0023264831329972147
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9495928654517255,
+      "delta": 0.0009693679720821358
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.8497479643272586,
+      "delta": 0.100814269096549
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.946297014346646,
+      "delta": 0.004265219077161597
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9470725087243117,
+      "delta": 0.003489724699495933
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "intermittent_dropout",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0007754943776656642
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "stuck_at_value",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9484296238852268,
+      "delta": 0.002132609538580854
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "saturation",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9507561070182241,
+      "delta": -0.00019387359441647156
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "quantization",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9509499806126406,
+      "delta": -0.0003877471888329431
+    },
+    {
+      "model": "LogisticRegression",
+      "profile": "aviation_extreme",
+      "constraint": "packet_burst_loss",
+      "clean_accuracy": 0.9505622334238076,
+      "effective_accuracy": 0.9486234974796433,
+      "delta": 0.0019387359441643826
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "clean",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9501744862349748,
+      "delta": -0.0003877471888328321
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9488173710740597,
+      "delta": 0.0009693679720822468
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "noise",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9492051182628926,
+      "delta": 0.0005816207832494147
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9478480031019775,
+      "delta": 0.0019387359441644936
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9492051182628926,
+      "delta": 0.0005816207832494147
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9038386971694455,
+      "delta": 0.04594804187669643
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9501744862349748,
+      "delta": -0.0003877471888328321
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9492051182628926,
+      "delta": 0.0005816207832494147
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.8497479643272586,
+      "delta": 0.10003877471888334
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9495928654517255,
+      "delta": 0.00019387359441647156
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9478480031019775,
+      "delta": 0.0019387359441644936
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "latency",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.8497479643272586,
+      "delta": 0.10003877471888334
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "staleness",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9464908879410624,
+      "delta": 0.0032958511050795725
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "bias_drift",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9461031407522296,
+      "delta": 0.0036835982939124046
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "intermittent_dropout",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.949398991857309,
+      "delta": 0.0003877471888329431
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "stuck_at_value",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9476541295075611,
+      "delta": 0.002132609538580854
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "saturation",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "quantization",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.949786739046142,
+      "delta": 0.0
+    },
+    {
+      "model": "MLP",
+      "profile": "aviation_extreme",
+      "constraint": "packet_burst_loss",
+      "clean_accuracy": 0.949786739046142,
+      "effective_accuracy": 0.9478480031019775,
+      "delta": 0.0019387359441644936
+    }
+  ]
 }

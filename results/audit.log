@@ -1,0 +1,5 @@
+2026-03-21T21:05:11.738200 | dataset=nasa_fd001 | profile=aviation_extreme | threshold=0.7000 | worst_effective_accuracy=0.8497 | safety_triggered=False
+2026-03-21T21:05:49.386262 | dataset=nasa_fd001 | profile=aviation_extreme | threshold=0.7000 | worst_effective_accuracy=0.8497 | safety_triggered=False
+2026-03-21T21:43:09.234604 | dataset=nasa_fd001 | profile=aviation_extreme | threshold=0.7000 | worst_effective_accuracy=0.8497 | safety_triggered=False
+2026-03-21T21:47:11.058241 | dataset=nasa_fd001 | profile=aviation_extreme | threshold=0.7000 | worst_effective_accuracy=0.8389 | safety_triggered=False
+2026-03-21T21:51:34.135942 | dataset=nasa_fd001 | profile=aviation_extreme | threshold=0.7000 | worst_effective_accuracy=0.8389 | safety_triggered=False

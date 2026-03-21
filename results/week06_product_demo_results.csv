@@ -1,64 +1,51 @@
-model,test_name,param,raw_accuracy,effective_accuracy,notes
-PyTorch MLP,baseline,-,0.8816666666666667,0.8816666666666667,"PyTorch MLP (train_acc=0.8807, test_acc=0.8817)"
-Logistic Regression,baseline,-,0.9966666666666667,0.9966666666666667,Logistic Regression (test_acc=0.9967)
-PyTorch MLP,noise,std=0.0,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-Logistic Regression,noise,std=0.0,0.9966666666666667,0.9966666666666667,Gaussian sensor noise
-PyTorch MLP,noise,std=0.1,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-Logistic Regression,noise,std=0.1,0.9983333333333333,0.9983333333333333,Gaussian sensor noise
-PyTorch MLP,noise,std=0.2,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-Logistic Regression,noise,std=0.2,0.995,0.995,Gaussian sensor noise
-PyTorch MLP,noise,std=0.5,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-Logistic Regression,noise,std=0.5,0.99,0.99,Gaussian sensor noise
-PyTorch MLP,noise,std=0.8,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-Logistic Regression,noise,std=0.8,0.9816666666666667,0.9816666666666667,Gaussian sensor noise
-PyTorch MLP,latency_effects,delay_ms=0,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-Logistic Regression,latency_effects,delay_ms=0,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
-PyTorch MLP,latency_effects,delay_ms=50,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-Logistic Regression,latency_effects,delay_ms=50,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
-PyTorch MLP,latency_effects,delay_ms=100,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-Logistic Regression,latency_effects,delay_ms=100,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
-PyTorch MLP,latency_effects,delay_ms=150,0.8816666666666667,0.0,drop+timeout counted as failures
-Logistic Regression,latency_effects,delay_ms=150,0.9966666666666667,0.0,drop+timeout counted as failures
-PyTorch MLP,latency_effects,delay_ms=200,0.8816666666666667,0.0,drop+timeout counted as failures
-Logistic Regression,latency_effects,delay_ms=200,0.9966666666666667,0.0,drop+timeout counted as failures
-PyTorch MLP,staleness,"slow: delay=0, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"slow: delay=0, drift=0.003",0.9966666666666667,0.9966666666666667,staleness drift
-PyTorch MLP,staleness,"fast: delay=0, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"fast: delay=0, drift=0.015",0.9966666666666667,0.9966666666666667,staleness drift
-PyTorch MLP,staleness,"slow: delay=50, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"slow: delay=50, drift=0.003",0.995,0.995,staleness drift
-PyTorch MLP,staleness,"fast: delay=50, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"fast: delay=50, drift=0.015",0.9816666666666667,0.9816666666666667,staleness drift
-PyTorch MLP,staleness,"slow: delay=100, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"slow: delay=100, drift=0.003",0.9933333333333333,0.9933333333333333,staleness drift
-PyTorch MLP,staleness,"fast: delay=100, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"fast: delay=100, drift=0.015",0.96,0.96,staleness drift
-PyTorch MLP,staleness,"slow: delay=200, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"slow: delay=200, drift=0.003",0.9866666666666667,0.9866666666666667,staleness drift
-PyTorch MLP,staleness,"fast: delay=200, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"fast: delay=200, drift=0.015",0.9166666666666666,0.9166666666666666,staleness drift
-PyTorch MLP,staleness,"slow: delay=300, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"slow: delay=300, drift=0.003",0.975,0.975,staleness drift
-PyTorch MLP,staleness,"fast: delay=300, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-Logistic Regression,staleness,"fast: delay=300, drift=0.015",0.8733333333333333,0.8733333333333333,staleness drift
-PyTorch MLP,failure_mode,intermittent_dropout=0.03,0.8816666666666667,0.8816666666666667,rows zeroed out
-Logistic Regression,failure_mode,intermittent_dropout=0.03,0.995,0.995,rows zeroed out
-PyTorch MLP,failure_mode,stuck_at_value=0.03,0.8816666666666667,0.8816666666666667,rows repeat previous
-Logistic Regression,failure_mode,stuck_at_value=0.03,0.99,0.99,rows repeat previous
-PyTorch MLP,failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.8816666666666667,0.8816666666666667,systematic bias
-Logistic Regression,failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.9883333333333333,0.9883333333333333,systematic bias
-PyTorch MLP,failure_mode,"sensor_saturation(per_feature,p99.5)",0.8816666666666667,0.8816666666666667,caps sensor outputs (flatline)
-Logistic Regression,failure_mode,"sensor_saturation(per_feature,p99.5)",0.9966666666666667,0.9966666666666667,caps sensor outputs (flatline)
-PyTorch MLP,failure_mode,quantization(decimals=1),0.8816666666666667,0.8816666666666667,low-resolution sensor rounding
-Logistic Regression,failure_mode,quantization(decimals=1),0.9983333333333333,0.9983333333333333,low-resolution sensor rounding
-PyTorch MLP,failure_mode,packet_burst_loss(500ms),0.8816666666666667,0.805,contiguous blackout window; dropped=fail
-Logistic Regression,failure_mode,packet_burst_loss(500ms),0.9966666666666667,0.915,contiguous blackout window; dropped=fail
-PyTorch MLP,combined_constraints,noise=0.2|delay=100|drift=0.003,0.8816666666666667,0.8316666666666667,combined noise + latency + staleness
-PyTorch MLP,combined_constraints,noise=0.3|delay=100|drift=0.015,0.8816666666666667,0.8316666666666667,combined noise + latency + staleness
-PyTorch MLP,combined_constraints,noise=0.5|delay=150|drift=0.015,0.8816666666666667,0.0,combined noise + latency + staleness
-PyTorch MLP,feature_sensitivity,temp_c,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
-PyTorch MLP,feature_sensitivity,pressure_psi,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
-PyTorch MLP,feature_sensitivity,vibration_mm_s,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
-PyTorch MLP,feature_sensitivity,power_watts,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
-PyTorch MLP,feature_sensitivity,cycle_time_s,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
-PyTorch MLP,feature_sensitivity,humidity_pct,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+model,profile,constraint,clean_accuracy,effective_accuracy,delta
+LogisticRegression,aviation_extreme,clean,0.9505622334238076,0.9505622334238076,0.0
+LogisticRegression,aviation_extreme,noise,0.9505622334238076,0.9507561070182241,-0.00019387359441647156
+LogisticRegression,aviation_extreme,noise,0.9505622334238076,0.949786739046142,0.0007754943776656642
+LogisticRegression,aviation_extreme,noise,0.9505622334238076,0.949398991857309,0.0011632415664986073
+LogisticRegression,aviation_extreme,noise,0.9505622334238076,0.9482357502908104,0.0023264831329972147
+LogisticRegression,aviation_extreme,latency,0.9505622334238076,0.9459092671578131,0.00465296626599454
+LogisticRegression,aviation_extreme,staleness,0.9505622334238076,0.9484296238852268,0.002132609538580854
+LogisticRegression,aviation_extreme,bias_drift,0.9505622334238076,0.9495928654517255,0.0009693679720821358
+LogisticRegression,aviation_extreme,latency,0.9505622334238076,0.8497479643272586,0.100814269096549
+LogisticRegression,aviation_extreme,staleness,0.9505622334238076,0.9474602559131446,0.00310197751066299
+LogisticRegression,aviation_extreme,bias_drift,0.9505622334238076,0.9470725087243117,0.003489724699495933
+LogisticRegression,aviation_extreme,latency,0.9505622334238076,0.8497479643272586,0.100814269096549
+LogisticRegression,aviation_extreme,staleness,0.9505622334238076,0.94009305932532,0.010469174098487688
+LogisticRegression,aviation_extreme,bias_drift,0.9505622334238076,0.9447460255913145,0.005816207832493148
+LogisticRegression,aviation_extreme,latency,0.9505622334238076,0.8497479643272586,0.100814269096549
+LogisticRegression,aviation_extreme,staleness,0.9505622334238076,0.912369135323769,0.03819309810003868
+LogisticRegression,aviation_extreme,bias_drift,0.9505622334238076,0.934858472276076,0.015703761147731643
+LogisticRegression,aviation_extreme,latency,0.9505622334238076,0.8497479643272586,0.100814269096549
+LogisticRegression,aviation_extreme,staleness,0.9505622334238076,0.838891043039938,0.11167119038386963
+LogisticRegression,aviation_extreme,bias_drift,0.9505622334238076,0.9005428460643661,0.05001938735944156
+LogisticRegression,aviation_extreme,intermittent_dropout,0.9505622334238076,0.9447460255913145,0.005816207832493148
+LogisticRegression,aviation_extreme,stuck_at_value,0.9505622334238076,0.939705312136487,0.010856921287320631
+LogisticRegression,aviation_extreme,saturation,0.9505622334238076,0.951143854207057,-0.0005816207832494147
+LogisticRegression,aviation_extreme,quantization,0.9505622334238076,0.9474602559131446,0.00310197751066299
+LogisticRegression,aviation_extreme,packet_burst_loss,0.9505622334238076,0.9455215199689803,0.005040713454827372
+MLP,aviation_extreme,clean,0.949786739046142,0.949786739046142,0.0
+MLP,aviation_extreme,noise,0.949786739046142,0.9492051182628926,0.0005816207832494147
+MLP,aviation_extreme,noise,0.949786739046142,0.9488173710740597,0.0009693679720822468
+MLP,aviation_extreme,noise,0.949786739046142,0.9484296238852268,0.00135711516091519
+MLP,aviation_extreme,noise,0.949786739046142,0.949398991857309,0.0003877471888329431
+MLP,aviation_extreme,latency,0.949786739046142,0.944939899185731,0.004846839860411012
+MLP,aviation_extreme,staleness,0.949786739046142,0.9501744862349748,-0.0003877471888328321
+MLP,aviation_extreme,bias_drift,0.949786739046142,0.9478480031019775,0.0019387359441644936
+MLP,aviation_extreme,latency,0.949786739046142,0.8497479643272586,0.10003877471888334
+MLP,aviation_extreme,staleness,0.949786739046142,0.949398991857309,0.0003877471888329431
+MLP,aviation_extreme,bias_drift,0.949786739046142,0.9461031407522296,0.0036835982939124046
+MLP,aviation_extreme,latency,0.949786739046142,0.8497479643272586,0.10003877471888334
+MLP,aviation_extreme,staleness,0.949786739046142,0.941450174486235,0.008336564559906945
+MLP,aviation_extreme,bias_drift,0.949786739046142,0.9412563008918186,0.008530438154323416
+MLP,aviation_extreme,latency,0.949786739046142,0.8497479643272586,0.10003877471888334
+MLP,aviation_extreme,staleness,0.949786739046142,0.913726250484684,0.03606048856145794
+MLP,aviation_extreme,bias_drift,0.949786739046142,0.9313687475765801,0.018417991469561912
+MLP,aviation_extreme,latency,0.949786739046142,0.8497479643272586,0.10003877471888334
+MLP,aviation_extreme,staleness,0.949786739046142,0.8699108181465685,0.07987592089957352
+MLP,aviation_extreme,bias_drift,0.949786739046142,0.8904614191547111,0.05932531989143086
+MLP,aviation_extreme,intermittent_dropout,0.949786739046142,0.944552151996898,0.005234587049243955
+MLP,aviation_extreme,stuck_at_value,0.949786739046142,0.9387359441644048,0.011050794881737214
+MLP,aviation_extreme,saturation,0.949786739046142,0.9499806126405583,-0.00019387359441636054
+MLP,aviation_extreme,quantization,0.949786739046142,0.9470725087243117,0.002714230321830269
+MLP,aviation_extreme,packet_burst_loss,0.949786739046142,0.9447460255913145,0.0050407134548274835

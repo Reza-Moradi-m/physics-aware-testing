@@ -1,76 +1,112 @@
 # run_product.py
-import sys
-import subprocess
-import argparse
+from __future__ import annotations
 
-PY = sys.executable  # uses current venv python
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+import pandas as pd
+
+PY = sys.executable
 
 
 def run_step(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, check=check)
 
 
+def ensure_nasa_dataset(csv_path: str) -> None:
+    csv_file = Path(csv_path)
+    if csv_file.exists():
+        print(f"NASA dataset already exists: {csv_file}")
+        return
+
+    print("Setting up NASA dataset...")
+    run_step([PY, "-m", "src.adapters.nasa_adapter"], check=True)
+
+
 def main() -> None:
-    ap = argparse.ArgumentParser(description="RobustAI Engine - Product Demo Pipeline")
-    ap.add_argument("--csv", default="data/factory_sensors.csv", help="Path to CSV dataset")
+    ap = argparse.ArgumentParser(description="RobustAI Engine - Product Pipeline")
+    ap.add_argument("--dataset", default="nasa", choices=["nasa"], help="Dataset adapter to use")
+    ap.add_argument("--csv", default="data/nasa_jet_engine.csv", help="Path to standardized CSV")
     ap.add_argument("--label", default="label", help="Label column name")
-    ap.add_argument("--profile", default="industrial_wifi", help="Deployment profile (configs/profiles.json)")
-    ap.add_argument("--model-name", default="MLP_v1", help="Model name for warnings")
-    ap.add_argument("--skip-data-gen", action="store_true", help="Skip synthetic dataset generation step")
-    ap.add_argument("--save-gold", action="store_true", help="Save this run as gold_standard.json baseline")
-    ap.add_argument("--pdf", action="store_true", help="Generate executive PDF report (results/executive_report.pdf)")
+    ap.add_argument("--profile", default="aviation_extreme", help="Deployment profile")
+    ap.add_argument("--dataset-name", default="nasa_fd001", help="Dataset name for reports")
+    ap.add_argument("--compare", action="store_true", help="Run model comparison")
+    ap.add_argument("--save-gold", action="store_true", help="Save run as regression gold baseline")
+    ap.add_argument("--pdf", action="store_true", help="Generate executive PDF if your existing PDF module supports current outputs")
     args = ap.parse_args()
 
-    print("--- 1) Generate Smart Factory Dataset ---")
-    if args.skip_data_gen:
-        print("Skipped dataset generation (--skip-data-gen).")
-    else:
-        run_step([PY, "-m", "src.data_gen"], check=True)
+    print("--- ROBUSTAI ENGINE: PRODUCT AUDIT ---")
 
-    print("\n--- 2) Run Audit (Week06 Runner) ---")
+    if args.dataset == "nasa":
+        ensure_nasa_dataset(args.csv)
+
+    print("\n--- RUNNING AUDIT ---")
     cmd = [
-        PY, "-m", "src.week06_runner",
-        "--csv", args.csv,
-        "--label", args.label,
-        "--profile", args.profile,
-        "--model-name", args.model_name,
+        PY,
+        "-m",
+        "src.week06_runner",
+        "--csv",
+        args.csv,
+        "--label",
+        args.label,
+        "--profile",
+        args.profile,
+        "--dataset-name",
+        args.dataset_name,
     ]
+
+    if args.compare:
+        cmd.append("--compare")
     if args.save_gold:
         cmd.append("--save-gold")
 
-    p = run_step(cmd, check=False)
-    runner_exit = int(p.returncode)
+    proc = run_step(cmd, check=False)
+    runner_exit = int(proc.returncode)
 
-    # 0 = pass, 2 = safety violation (audit warning), other = real failure
     if runner_exit not in (0, 2):
-        print(f"\n[ERROR] week06_runner exited with code {runner_exit}. Stopping before dashboard.")
-        sys.exit(runner_exit)
+        print(f"[ERROR] Runner failed with exit code {runner_exit}")
+        raise SystemExit(runner_exit)
 
-    print("\n--- 3) Generate Dashboard ---")
-    run_step([PY, "-m", "src.dashboard"], check=True)
+    print("\n--- GENERATING DASHBOARD ---")
+    dashboard_cmd = [PY, "-m", "src.dashboard"]
+    dash_proc = run_step(dashboard_cmd, check=False)
+    if dash_proc.returncode != 0:
+        print("[WARNING] Dashboard generation failed. Check src/dashboard.py against new results format.")
 
-    print("\n--- 4) Generate Executive PDF Report ---")
     if args.pdf:
-        run_step([PY, "-m", "src.pdf_report"], check=True)
-    else:
-        print("Skipped PDF generation (use --pdf).")
+        print("\n--- GENERATING EXECUTIVE PDF ---")
+        pdf_cmd = [PY, "-m", "src.pdf_report"]
+        pdf_proc = run_step(pdf_cmd, check=False)
+        if pdf_proc.returncode != 0:
+            print("[WARNING] PDF generation failed. Check src/pdf_report.py against new results format.")
 
     print("\nArtifacts:")
     print(" - results/week06_report.md")
     print(" - results/week06_product_demo_results.csv")
+    print(" - results/feature_sensitivity.csv")
     print(" - results/week06_operating_envelope.csv")
-    print(" - results/master_dashboard.png")
     print(" - results/mitigations.md")
-    print(" - results/regression_report.json (if gold exists)")
-    print(" - results/regression_summary.md (if gold exists)")
+    print(" - results/audit.log")
+    print(" - results/regression_report.json (if baseline exists)")
+    print(" - results/regression_summary.md (if baseline exists)")
     print(" - results/gold_standard.json (if saved)")
+    print(" - results/master_dashboard.png (if dashboard succeeds)")
     if args.pdf:
-        print(" - results/executive_report.pdf")
+        print(" - results/executive_report.pdf (if PDF succeeds)")
+
+    try:
+        results = pd.read_csv("results/week06_product_demo_results.csv")
+        worst_acc = results["effective_accuracy"].min()
+        print(f"\nWorst effective accuracy observed: {worst_acc:.4f}")
+    except Exception:
+        pass
 
     if runner_exit == 2:
-        print("\n[WARNING] Safety gate triggered (exit code 2). Artifacts were generated, but deployment is NOT recommended.")
+        print("\n[WARNING] Safety gate triggered. Artifacts were generated, but deployment is NOT recommended.")
 
-    sys.exit(runner_exit)
+    raise SystemExit(runner_exit)
 
 
 if __name__ == "__main__":

@@ -11,37 +11,21 @@ from reportlab.lib import utils
 from reportlab.pdfgen import canvas
 
 
-# ----------------------------
-# Markdown -> Plain text cleanup
-# ----------------------------
 def strip_markdown(md: str) -> str:
     """
-    Turn simple Markdown into plain text suitable for executive PDF.
-    Removes headers (#), bold/italics markers, backticks, and normalizes bullets.
+    Convert simple markdown to cleaner plain text for PDF output.
     """
     s = md if md is not None else ""
 
-    # Remove headings like "# Title" / "## Title"
     s = re.sub(r"(?m)^\s{0,3}#{1,6}\s+", "", s)
-
-    # Remove bold/italic markers
     s = s.replace("**", "").replace("__", "").replace("*", "").replace("_", "")
-
-    # Remove inline code backticks
     s = s.replace("`", "")
-
-    # Convert "- " bullets to "• "
     s = re.sub(r"(?m)^\s*-\s+", "• ", s)
-
-    # Collapse 3+ newlines to 2
     s = re.sub(r"\n{3,}", "\n\n", s)
 
     return s.strip()
 
 
-# ----------------------------
-# PDF helpers
-# ----------------------------
 def _draw_wrapped_text(
     c: canvas.Canvas,
     text: str,
@@ -52,9 +36,6 @@ def _draw_wrapped_text(
     font_name: str = "Helvetica",
     font_size: int = 10,
 ) -> float:
-    """
-    Draw text with simple word-wrap. Returns the new y position after drawing.
-    """
     c.setFont(font_name, font_size)
 
     def split_paragraph(par: str) -> list[str]:
@@ -73,16 +54,15 @@ def _draw_wrapped_text(
             lines.append(cur)
         return lines
 
-    # Normalize line endings
     text = (text or "").replace("\r\n", "\n").replace("\r", "\n")
     paragraphs = text.split("\n")
 
     for par in paragraphs:
         if par.strip() == "":
-            y -= line_height  # blank line
+            y -= line_height
             continue
+
         for line in split_paragraph(par):
-            # Page break if needed
             if y < 72:
                 c.showPage()
                 y = letter[1] - 72
@@ -90,6 +70,7 @@ def _draw_wrapped_text(
 
             c.drawString(x, y, line)
             y -= line_height
+
     return y
 
 
@@ -107,10 +88,6 @@ def _draw_image_fit_width(
     max_width: float,
     max_height: float,
 ) -> float:
-    """
-    Draw image, fitting to width/height bounds while preserving aspect ratio.
-    Returns the new y position below the image.
-    """
     if not img_path.exists():
         c.setFont("Helvetica", 11)
         c.drawString(x, y_top, f"[Missing image: {img_path}]")
@@ -138,7 +115,7 @@ def build_executive_pdf(
     regression_md: str = "results/regression_summary.md",
     mitigations_md: str = "results/mitigations.md",
     title: str = "RobustAI Engine — Executive Reliability Report",
-    subtitle: Optional[str] = None,
+    subtitle: Optional[str] = "Operational stress audit with model comparison, safety gate, and mitigations",
 ) -> None:
     out = Path(out_path)
     out.parent.mkdir(exist_ok=True)
@@ -151,7 +128,7 @@ def build_executive_pdf(
     c = canvas.Canvas(str(out), pagesize=letter)
     page_w, page_h = letter
 
-    # ---------- Cover / Header ----------
+    # Cover
     c.setFont("Helvetica-Bold", 18)
     c.drawString(72, page_h - 72, title)
 
@@ -162,10 +139,9 @@ def build_executive_pdf(
     if subtitle:
         c.drawString(72, page_h - 110, subtitle)
 
-    # ---------- Dashboard (page 1) ----------
     y = page_h - 140
     c.setFont("Helvetica-Bold", 13)
-    c.drawString(72, y, "1) Reliability Certificate Dashboard")
+    c.drawString(72, y, "1) Reliability Dashboard")
     y -= 16
 
     y = _draw_image_fit_width(
@@ -179,7 +155,6 @@ def build_executive_pdf(
 
     c.showPage()
 
-    # Helper for text sections
     def add_section(heading: str, body: str) -> None:
         x = 72
         y = page_h - 72
@@ -189,7 +164,7 @@ def build_executive_pdf(
         c.drawString(x, y, heading)
         y -= 18
 
-        y = _draw_wrapped_text(
+        _draw_wrapped_text(
             c,
             body,
             x=x,
@@ -201,17 +176,12 @@ def build_executive_pdf(
         )
         c.showPage()
 
-    # ---------- Section 2: Week report ----------
-    add_section("2) Week Report", strip_markdown(_safe_read_text(week_md)))
-
-    # ---------- Section 3: Regression ----------
-    add_section("3) Regression Check (V1 vs V2)", strip_markdown(_safe_read_text(reg_md)))
-
-    # ---------- Section 4: Required Mitigations ----------
-    add_section("4) Required Mitigations (Fix-it Engine)", strip_markdown(_safe_read_text(mit_md)))
+    add_section("2) Audit Summary", strip_markdown(_safe_read_text(week_md)))
+    add_section("3) Regression Summary", strip_markdown(_safe_read_text(reg_md)))
+    add_section("4) Mitigation Recommendations", strip_markdown(_safe_read_text(mit_md)))
 
     c.save()
-    print(f"✅ Executive PDF saved: {out}")
+    print(f"Executive PDF saved: {out}")
 
 
 if __name__ == "__main__":

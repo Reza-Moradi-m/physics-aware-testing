@@ -1,6 +1,1097 @@
 {
-  "baseline_accuracy_delta": 0.0,
-  "worst_effective_accuracy_delta": 0.0,
-  "safe_zone_delta": 0.0,
-  "notes": "Gold profile: industrial_wifi  | Current profile: industrial_wifi\nBaseline accuracy change: +0.000\nWorst effective accuracy change: +0.000\nSafe operating zone change: +0.000 (fraction of envelope cells passing)\nNo major envelope change detected."
+  "generated_at": "2026-03-21T21:51:34.132720",
+  "comparisons": [
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9495928654517255,
+      "delta_vs_gold": -0.0011632415664986073
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9470725087243117,
+      "delta_vs_gold": -0.0036835982939124046
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.006010081426909619
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.934858472276076,
+      "delta_vs_gold": -0.015897634742148115
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9005428460643661,
+      "delta_vs_gold": -0.05021326095385803
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9503683598293913,
+      "effective_accuracy_current": 0.9495928654517255,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9503683598293913,
+      "effective_accuracy_current": 0.9470725087243117,
+      "delta_vs_gold": -0.0032958511050795725
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9503683598293913,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.005622334238076787
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9503683598293913,
+      "effective_accuracy_current": 0.934858472276076,
+      "delta_vs_gold": -0.015509887553315282
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9503683598293913,
+      "effective_accuracy_current": 0.9005428460643661,
+      "delta_vs_gold": -0.0498255137650252
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.9495928654517255,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.9470725087243117,
+      "delta_vs_gold": -0.0025203567274137972
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.004846839860411012
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.934858472276076,
+      "delta_vs_gold": -0.014734393175649507
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.9005428460643661,
+      "delta_vs_gold": -0.04905001938735942
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9470725087243117,
+      "effective_accuracy_current": 0.9495928654517255,
+      "delta_vs_gold": 0.0025203567274137972
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9470725087243117,
+      "effective_accuracy_current": 0.9470725087243117,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9470725087243117,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.0023264831329972147
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9470725087243117,
+      "effective_accuracy_current": 0.934858472276076,
+      "delta_vs_gold": -0.01221403644823571
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9470725087243117,
+      "effective_accuracy_current": 0.9005428460643661,
+      "delta_vs_gold": -0.046529662659945625
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "clean",
+      "effective_accuracy_gold": 0.9505622334238076,
+      "effective_accuracy_current": 0.9505622334238076,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "intermittent_dropout",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.0050407134548274835
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.9459092671578131,
+      "delta_vs_gold": -0.0029081039162466293
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09906940674680109
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09906940674680109
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09906940674680109
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09906940674680109
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9048080651415277,
+      "effective_accuracy_current": 0.9459092671578131,
+      "delta_vs_gold": 0.04110120201628542
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9048080651415277,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.05506010081426904
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9048080651415277,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.05506010081426904
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9048080651415277,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.05506010081426904
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9048080651415277,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.05506010081426904
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.9459092671578131,
+      "delta_vs_gold": 0.09616130283055446
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.9459092671578131,
+      "delta_vs_gold": 0.09616130283055446
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9507561070182241,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.949786739046142,
+      "delta_vs_gold": -0.0009693679720821358
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.0013571151609150789
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9482357502908104,
+      "delta_vs_gold": -0.002520356727413686
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9499806126405583,
+      "effective_accuracy_current": 0.9507561070182241,
+      "delta_vs_gold": 0.0007754943776657752
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9499806126405583,
+      "effective_accuracy_current": 0.949786739046142,
+      "delta_vs_gold": -0.00019387359441636054
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9499806126405583,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.0005816207832493037
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9499806126405583,
+      "effective_accuracy_current": 0.9482357502908104,
+      "delta_vs_gold": -0.001744862349747911
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9490112446684762,
+      "effective_accuracy_current": 0.9507561070182241,
+      "delta_vs_gold": 0.001744862349747911
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9490112446684762,
+      "effective_accuracy_current": 0.949786739046142,
+      "delta_vs_gold": 0.0007754943776657752
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9490112446684762,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": 0.0003877471888328321
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9490112446684762,
+      "effective_accuracy_current": 0.9482357502908104,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "packet_burst_loss",
+      "effective_accuracy_gold": 0.9486234974796433,
+      "effective_accuracy_current": 0.9455215199689803,
+      "delta_vs_gold": -0.00310197751066299
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "quantization",
+      "effective_accuracy_gold": 0.9509499806126406,
+      "effective_accuracy_current": 0.9474602559131446,
+      "delta_vs_gold": -0.003489724699495933
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "saturation",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.951143854207057,
+      "delta_vs_gold": 0.0003877471888329431
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": -0.0023264831329973257
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.9474602559131446,
+      "delta_vs_gold": -0.0032958511050794614
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.94009305932532,
+      "delta_vs_gold": -0.01066304769290416
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.912369135323769,
+      "delta_vs_gold": -0.03838697169445515
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9507561070182241,
+      "effective_accuracy_current": 0.838891043039938,
+      "delta_vs_gold": -0.1118650639782861
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": -0.00135711516091519
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9474602559131446,
+      "delta_vs_gold": -0.0023264831329973257
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.94009305932532,
+      "delta_vs_gold": -0.009693679720822024
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.912369135323769,
+      "delta_vs_gold": -0.037417603722373016
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.838891043039938,
+      "delta_vs_gold": -0.11089569600620397
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9482357502908104,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": 0.00019387359441636054
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9482357502908104,
+      "effective_accuracy_current": 0.9474602559131446,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9482357502908104,
+      "effective_accuracy_current": 0.94009305932532,
+      "delta_vs_gold": -0.008142690965490473
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9482357502908104,
+      "effective_accuracy_current": 0.912369135323769,
+      "delta_vs_gold": -0.035866614967041466
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9482357502908104,
+      "effective_accuracy_current": 0.838891043039938,
+      "delta_vs_gold": -0.10934470725087242
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.946297014346646,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": 0.002132609538580743
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.946297014346646,
+      "effective_accuracy_current": 0.9474602559131446,
+      "delta_vs_gold": 0.0011632415664986073
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.946297014346646,
+      "effective_accuracy_current": 0.94009305932532,
+      "delta_vs_gold": -0.006203955021326091
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.946297014346646,
+      "effective_accuracy_current": 0.912369135323769,
+      "delta_vs_gold": -0.03392787902287708
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.946297014346646,
+      "effective_accuracy_current": 0.838891043039938,
+      "delta_vs_gold": -0.10740597130670804
+    },
+    {
+      "model": "LogisticRegression",
+      "constraint": "stuck_at_value",
+      "effective_accuracy_gold": 0.9484296238852268,
+      "effective_accuracy_current": 0.939705312136487,
+      "delta_vs_gold": -0.008724311748739777
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9478480031019775,
+      "delta_vs_gold": -0.0013571151609150789
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9461031407522296,
+      "delta_vs_gold": -0.00310197751066299
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9412563008918186,
+      "delta_vs_gold": -0.007948817371074002
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9313687475765801,
+      "delta_vs_gold": -0.017836370686312497
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.8904614191547111,
+      "delta_vs_gold": -0.058743699108181446
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9478480031019775,
+      "delta_vs_gold": -0.0013571151609150789
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9461031407522296,
+      "delta_vs_gold": -0.00310197751066299
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9412563008918186,
+      "delta_vs_gold": -0.007948817371074002
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9313687475765801,
+      "delta_vs_gold": -0.017836370686312497
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.8904614191547111,
+      "delta_vs_gold": -0.058743699108181446
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.9478480031019775,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.9461031407522296,
+      "delta_vs_gold": -0.001744862349747911
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.9412563008918186,
+      "delta_vs_gold": -0.006591702210158923
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.9313687475765801,
+      "delta_vs_gold": -0.016479255525397418
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.8904614191547111,
+      "delta_vs_gold": -0.05738658394726637
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9461031407522296,
+      "effective_accuracy_current": 0.9478480031019775,
+      "delta_vs_gold": 0.001744862349747911
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9461031407522296,
+      "effective_accuracy_current": 0.9461031407522296,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9461031407522296,
+      "effective_accuracy_current": 0.9412563008918186,
+      "delta_vs_gold": -0.004846839860411012
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9461031407522296,
+      "effective_accuracy_current": 0.9313687475765801,
+      "delta_vs_gold": -0.014734393175649507
+    },
+    {
+      "model": "MLP",
+      "constraint": "bias_drift",
+      "effective_accuracy_gold": 0.9461031407522296,
+      "effective_accuracy_current": 0.8904614191547111,
+      "delta_vs_gold": -0.055641721597518456
+    },
+    {
+      "model": "MLP",
+      "constraint": "clean",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.949786739046142,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "intermittent_dropout",
+      "effective_accuracy_gold": 0.949398991857309,
+      "effective_accuracy_current": 0.944552151996898,
+      "delta_vs_gold": -0.004846839860411012
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.944939899185731,
+      "delta_vs_gold": -0.0029081039162465183
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09810003877471885
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09810003877471885
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09810003877471885
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.09810003877471885
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9038386971694455,
+      "effective_accuracy_current": 0.944939899185731,
+      "delta_vs_gold": 0.04110120201628542
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9038386971694455,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.054090732842186906
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9038386971694455,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.054090732842186906
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9038386971694455,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.054090732842186906
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.9038386971694455,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": -0.054090732842186906
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.944939899185731,
+      "delta_vs_gold": 0.09519193485847233
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.944939899185731,
+      "delta_vs_gold": 0.09519193485847233
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "latency",
+      "effective_accuracy_gold": 0.8497479643272586,
+      "effective_accuracy_current": 0.8497479643272586,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.9492051182628926,
+      "delta_vs_gold": -0.0009693679720822468
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.9488173710740597,
+      "delta_vs_gold": -0.0013571151609150789
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": -0.001744862349748022
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.9492051182628926,
+      "delta_vs_gold": 0.0003877471888328321
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.9488173710740597,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": -0.0003877471888329431
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9488173710740597,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": 0.0005816207832493037
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9492051182628926,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9488173710740597,
+      "delta_vs_gold": -0.0003877471888328321
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.9484296238852268,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "MLP",
+      "constraint": "noise",
+      "effective_accuracy_gold": 0.9492051182628926,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": 0.00019387359441647156
+    },
+    {
+      "model": "MLP",
+      "constraint": "packet_burst_loss",
+      "effective_accuracy_gold": 0.9478480031019775,
+      "effective_accuracy_current": 0.9447460255913145,
+      "delta_vs_gold": -0.00310197751066299
+    },
+    {
+      "model": "MLP",
+      "constraint": "quantization",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9470725087243117,
+      "delta_vs_gold": -0.002714230321830269
+    },
+    {
+      "model": "MLP",
+      "constraint": "saturation",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9499806126405583,
+      "delta_vs_gold": 0.00019387359441636054
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.9501744862349748,
+      "delta_vs_gold": 0.0003877471888328321
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.0003877471888329431
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.941450174486235,
+      "delta_vs_gold": -0.008336564559906945
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.913726250484684,
+      "delta_vs_gold": -0.03606048856145794
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.949786739046142,
+      "effective_accuracy_current": 0.8699108181465685,
+      "delta_vs_gold": -0.07987592089957352
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.9501744862349748,
+      "delta_vs_gold": 0.0
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.0007754943776657752
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.941450174486235,
+      "delta_vs_gold": -0.008724311748739777
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.913726250484684,
+      "delta_vs_gold": -0.03644823575029077
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9501744862349748,
+      "effective_accuracy_current": 0.8699108181465685,
+      "delta_vs_gold": -0.08026366808840635
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.9501744862349748,
+      "delta_vs_gold": 0.0005816207832493037
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": -0.00019387359441647156
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.941450174486235,
+      "delta_vs_gold": -0.008142690965490473
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.913726250484684,
+      "delta_vs_gold": -0.035866614967041466
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9495928654517255,
+      "effective_accuracy_current": 0.8699108181465685,
+      "delta_vs_gold": -0.07968204730515704
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9464908879410624,
+      "effective_accuracy_current": 0.9501744862349748,
+      "delta_vs_gold": 0.0036835982939124046
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9464908879410624,
+      "effective_accuracy_current": 0.949398991857309,
+      "delta_vs_gold": 0.0029081039162466293
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9464908879410624,
+      "effective_accuracy_current": 0.941450174486235,
+      "delta_vs_gold": -0.005040713454827372
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9464908879410624,
+      "effective_accuracy_current": 0.913726250484684,
+      "delta_vs_gold": -0.032764637456378365
+    },
+    {
+      "model": "MLP",
+      "constraint": "staleness",
+      "effective_accuracy_gold": 0.9464908879410624,
+      "effective_accuracy_current": 0.8699108181465685,
+      "delta_vs_gold": -0.07658006979449394
+    },
+    {
+      "model": "MLP",
+      "constraint": "stuck_at_value",
+      "effective_accuracy_gold": 0.9476541295075611,
+      "effective_accuracy_current": 0.9387359441644048,
+      "delta_vs_gold": -0.00891818534315636
+    }
+  ]
 }
