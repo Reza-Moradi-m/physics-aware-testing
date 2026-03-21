@@ -1,0 +1,6 @@
+{
+  "baseline_accuracy_delta": 0.0,
+  "worst_effective_accuracy_delta": 0.0,
+  "safe_zone_delta": 0.0,
+  "notes": "Gold profile: industrial_wifi  | Current profile: industrial_wifi\nBaseline accuracy change: +0.000\nWorst effective accuracy change: +0.000\nSafe operating zone change: +0.000 (fraction of envelope cells passing)\nNo major envelope change detected."
+}

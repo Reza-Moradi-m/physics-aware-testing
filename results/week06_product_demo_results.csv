@@ -1,25 +1,64 @@
-test_name,param,raw_accuracy,effective_accuracy,notes
-baseline,-,0.8816666666666667,0.8816666666666667,"PyTorch MLP (train_acc=0.8807, test_acc=0.8817)"
-noise,std=0.0,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-noise,std=0.1,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-noise,std=0.2,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-noise,std=0.5,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-noise,std=0.8,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
-latency_effects,delay_ms=0,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-latency_effects,delay_ms=50,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-latency_effects,delay_ms=100,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
-latency_effects,delay_ms=150,0.8816666666666667,0.0,drop+timeout counted as failures
-latency_effects,delay_ms=200,0.8816666666666667,0.0,drop+timeout counted as failures
-staleness,"slow: delay=0, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"fast: delay=0, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"slow: delay=50, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"fast: delay=50, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"slow: delay=100, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"fast: delay=100, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"slow: delay=200, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"fast: delay=200, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"slow: delay=300, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
-staleness,"fast: delay=300, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
-failure_mode,intermittent_dropout=0.03,0.8816666666666667,0.8816666666666667,rows zeroed out
-failure_mode,stuck_at_value=0.03,0.8816666666666667,0.8816666666666667,rows repeat previous
-failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.8816666666666667,0.8816666666666667,systematic bias
+model,test_name,param,raw_accuracy,effective_accuracy,notes
+PyTorch MLP,baseline,-,0.8816666666666667,0.8816666666666667,"PyTorch MLP (train_acc=0.8807, test_acc=0.8817)"
+Logistic Regression,baseline,-,0.9966666666666667,0.9966666666666667,Logistic Regression (test_acc=0.9967)
+PyTorch MLP,noise,std=0.0,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+Logistic Regression,noise,std=0.0,0.9966666666666667,0.9966666666666667,Gaussian sensor noise
+PyTorch MLP,noise,std=0.1,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+Logistic Regression,noise,std=0.1,0.9983333333333333,0.9983333333333333,Gaussian sensor noise
+PyTorch MLP,noise,std=0.2,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+Logistic Regression,noise,std=0.2,0.995,0.995,Gaussian sensor noise
+PyTorch MLP,noise,std=0.5,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+Logistic Regression,noise,std=0.5,0.99,0.99,Gaussian sensor noise
+PyTorch MLP,noise,std=0.8,0.8816666666666667,0.8816666666666667,Gaussian sensor noise
+Logistic Regression,noise,std=0.8,0.9816666666666667,0.9816666666666667,Gaussian sensor noise
+PyTorch MLP,latency_effects,delay_ms=0,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+Logistic Regression,latency_effects,delay_ms=0,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
+PyTorch MLP,latency_effects,delay_ms=50,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+Logistic Regression,latency_effects,delay_ms=50,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
+PyTorch MLP,latency_effects,delay_ms=100,0.8816666666666667,0.8316666666666667,drop+timeout counted as failures
+Logistic Regression,latency_effects,delay_ms=100,0.9966666666666667,0.9416666666666667,drop+timeout counted as failures
+PyTorch MLP,latency_effects,delay_ms=150,0.8816666666666667,0.0,drop+timeout counted as failures
+Logistic Regression,latency_effects,delay_ms=150,0.9966666666666667,0.0,drop+timeout counted as failures
+PyTorch MLP,latency_effects,delay_ms=200,0.8816666666666667,0.0,drop+timeout counted as failures
+Logistic Regression,latency_effects,delay_ms=200,0.9966666666666667,0.0,drop+timeout counted as failures
+PyTorch MLP,staleness,"slow: delay=0, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"slow: delay=0, drift=0.003",0.9966666666666667,0.9966666666666667,staleness drift
+PyTorch MLP,staleness,"fast: delay=0, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"fast: delay=0, drift=0.015",0.9966666666666667,0.9966666666666667,staleness drift
+PyTorch MLP,staleness,"slow: delay=50, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"slow: delay=50, drift=0.003",0.995,0.995,staleness drift
+PyTorch MLP,staleness,"fast: delay=50, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"fast: delay=50, drift=0.015",0.9816666666666667,0.9816666666666667,staleness drift
+PyTorch MLP,staleness,"slow: delay=100, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"slow: delay=100, drift=0.003",0.9933333333333333,0.9933333333333333,staleness drift
+PyTorch MLP,staleness,"fast: delay=100, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"fast: delay=100, drift=0.015",0.96,0.96,staleness drift
+PyTorch MLP,staleness,"slow: delay=200, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"slow: delay=200, drift=0.003",0.9866666666666667,0.9866666666666667,staleness drift
+PyTorch MLP,staleness,"fast: delay=200, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"fast: delay=200, drift=0.015",0.9166666666666666,0.9166666666666666,staleness drift
+PyTorch MLP,staleness,"slow: delay=300, drift=0.003",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"slow: delay=300, drift=0.003",0.975,0.975,staleness drift
+PyTorch MLP,staleness,"fast: delay=300, drift=0.015",0.8816666666666667,0.8816666666666667,staleness drift
+Logistic Regression,staleness,"fast: delay=300, drift=0.015",0.8733333333333333,0.8733333333333333,staleness drift
+PyTorch MLP,failure_mode,intermittent_dropout=0.03,0.8816666666666667,0.8816666666666667,rows zeroed out
+Logistic Regression,failure_mode,intermittent_dropout=0.03,0.995,0.995,rows zeroed out
+PyTorch MLP,failure_mode,stuck_at_value=0.03,0.8816666666666667,0.8816666666666667,rows repeat previous
+Logistic Regression,failure_mode,stuck_at_value=0.03,0.99,0.99,rows repeat previous
+PyTorch MLP,failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.8816666666666667,0.8816666666666667,systematic bias
+Logistic Regression,failure_mode,"bias_drift(bias_per_ms=0.0008,delay=200)",0.9883333333333333,0.9883333333333333,systematic bias
+PyTorch MLP,failure_mode,"sensor_saturation(per_feature,p99.5)",0.8816666666666667,0.8816666666666667,caps sensor outputs (flatline)
+Logistic Regression,failure_mode,"sensor_saturation(per_feature,p99.5)",0.9966666666666667,0.9966666666666667,caps sensor outputs (flatline)
+PyTorch MLP,failure_mode,quantization(decimals=1),0.8816666666666667,0.8816666666666667,low-resolution sensor rounding
+Logistic Regression,failure_mode,quantization(decimals=1),0.9983333333333333,0.9983333333333333,low-resolution sensor rounding
+PyTorch MLP,failure_mode,packet_burst_loss(500ms),0.8816666666666667,0.805,contiguous blackout window; dropped=fail
+Logistic Regression,failure_mode,packet_burst_loss(500ms),0.9966666666666667,0.915,contiguous blackout window; dropped=fail
+PyTorch MLP,combined_constraints,noise=0.2|delay=100|drift=0.003,0.8816666666666667,0.8316666666666667,combined noise + latency + staleness
+PyTorch MLP,combined_constraints,noise=0.3|delay=100|drift=0.015,0.8816666666666667,0.8316666666666667,combined noise + latency + staleness
+PyTorch MLP,combined_constraints,noise=0.5|delay=150|drift=0.015,0.8816666666666667,0.0,combined noise + latency + staleness
+PyTorch MLP,feature_sensitivity,temp_c,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+PyTorch MLP,feature_sensitivity,pressure_psi,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+PyTorch MLP,feature_sensitivity,vibration_mm_s,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+PyTorch MLP,feature_sensitivity,power_watts,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+PyTorch MLP,feature_sensitivity,cycle_time_s,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000
+PyTorch MLP,feature_sensitivity,humidity_pct,0.8816666666666667,0.8816666666666667,baseline_drop=0.000000

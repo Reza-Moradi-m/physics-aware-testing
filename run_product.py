@@ -1,12 +1,12 @@
+# run_product.py
 import sys
 import subprocess
 import argparse
 
-PY = sys.executable  # Always uses the active venv interpreter
+PY = sys.executable  # uses current venv python
 
 
 def run_step(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess:
-    """Run a subprocess command and return the CompletedProcess."""
     return subprocess.run(cmd, check=check)
 
 
@@ -14,9 +14,11 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="RobustAI Engine - Product Demo Pipeline")
     ap.add_argument("--csv", default="data/factory_sensors.csv", help="Path to CSV dataset")
     ap.add_argument("--label", default="label", help="Label column name")
-    ap.add_argument("--threshold", type=float, default=0.75, help="Safety threshold for effective accuracy")
-    ap.add_argument("--model-name", default="MLP_v1", help="Model name for reporting/warnings")
+    ap.add_argument("--profile", default="industrial_wifi", help="Deployment profile (configs/profiles.json)")
+    ap.add_argument("--model-name", default="MLP_v1", help="Model name for warnings")
     ap.add_argument("--skip-data-gen", action="store_true", help="Skip synthetic dataset generation step")
+    ap.add_argument("--save-gold", action="store_true", help="Save this run as gold_standard.json baseline")
+    ap.add_argument("--pdf", action="store_true", help="Generate executive PDF report (results/executive_report.pdf)")
     args = ap.parse_args()
 
     print("--- 1) Generate Smart Factory Dataset ---")
@@ -25,17 +27,18 @@ def main() -> None:
     else:
         run_step([PY, "-m", "src.data_gen"], check=True)
 
-    print("\n--- 2) Run Week 06 Runner (Audit Mode) ---")
-    p = run_step(
-        [
-            PY, "-m", "src.week06_runner",
-            "--csv", args.csv,
-            "--label", args.label,
-            "--threshold", str(args.threshold),
-            "--model-name", args.model_name,
-        ],
-        check=False,  # IMPORTANT: we want to continue even if it returns 2
-    )
+    print("\n--- 2) Run Audit (Week06 Runner) ---")
+    cmd = [
+        PY, "-m", "src.week06_runner",
+        "--csv", args.csv,
+        "--label", args.label,
+        "--profile", args.profile,
+        "--model-name", args.model_name,
+    ]
+    if args.save_gold:
+        cmd.append("--save-gold")
+
+    p = run_step(cmd, check=False)
     runner_exit = int(p.returncode)
 
     # 0 = pass, 2 = safety violation (audit warning), other = real failure
@@ -46,16 +49,27 @@ def main() -> None:
     print("\n--- 3) Generate Dashboard ---")
     run_step([PY, "-m", "src.dashboard"], check=True)
 
+    print("\n--- 4) Generate Executive PDF Report ---")
+    if args.pdf:
+        run_step([PY, "-m", "src.pdf_report"], check=True)
+    else:
+        print("Skipped PDF generation (use --pdf).")
+
     print("\nArtifacts:")
     print(" - results/week06_report.md")
     print(" - results/week06_product_demo_results.csv")
     print(" - results/week06_operating_envelope.csv")
     print(" - results/master_dashboard.png")
+    print(" - results/mitigations.md")
+    print(" - results/regression_report.json (if gold exists)")
+    print(" - results/regression_summary.md (if gold exists)")
+    print(" - results/gold_standard.json (if saved)")
+    if args.pdf:
+        print(" - results/executive_report.pdf")
 
     if runner_exit == 2:
         print("\n[WARNING] Safety gate triggered (exit code 2). Artifacts were generated, but deployment is NOT recommended.")
 
-    # Return the audit exit code so CI/deployment systems can block deployment automatically
     sys.exit(runner_exit)
 
 

@@ -110,3 +110,84 @@ def apply_bias_drift(
     X = np.asarray(X, dtype=float).copy()
     bias = float(delay_ms) * float(bias_per_ms)
     return X + bias
+
+
+import numpy as np
+
+def apply_sensor_saturation(
+    X: np.ndarray,
+    *,
+    clip_max: float | None = None,
+    clip_min: float | None = None,
+    per_feature: bool = False,
+    ref_X: np.ndarray | None = None,
+    clip_percentile: float = 99.5,
+) -> np.ndarray:
+    """
+    Sensor Saturation / Flatline:
+    Caps values so sensors can't exceed physical range.
+
+    Options:
+      - clip_max/clip_min: scalar caps applied to all features
+      - per_feature=True with ref_X: derive per-feature caps from ref_X percentile
+    """
+    X = np.asarray(X, dtype=float)
+
+    if per_feature:
+        if ref_X is None:
+            raise ValueError("apply_sensor_saturation(per_feature=True) requires ref_X")
+        ref_X = np.asarray(ref_X, dtype=float)
+        hi = np.percentile(ref_X, clip_percentile, axis=0)
+        lo = np.percentile(ref_X, 100.0 - clip_percentile, axis=0)
+        return np.clip(X, lo, hi)
+
+    # global caps
+    if clip_min is None:
+        clip_min = -np.inf
+    if clip_max is None:
+        clip_max = np.inf
+    return np.clip(X, clip_min, clip_max)
+
+
+def apply_quantization(
+    X: np.ndarray,
+    *,
+    decimals: int = 1,
+) -> np.ndarray:
+    """
+    Quantization Error:
+    Simulates low-resolution sensors (ADC precision).
+    Example: decimals=1 -> round to 1 decimal place.
+    """
+    X = np.asarray(X, dtype=float)
+    return np.round(X, decimals=decimals)
+
+
+def simulate_packet_burst_loss(
+    n_samples: int,
+    *,
+    burst_ms: int = 500,
+    sample_period_ms: int = 10,
+    seed: int = 0,
+) -> dict:
+    """
+    Packet Burst Loss:
+    Drops ALL samples for one contiguous window (radio blackout).
+
+    Returns:
+      dict with dropped_mask (bool array, True = dropped)
+    """
+    rng = np.random.default_rng(seed)
+    n_samples = int(n_samples)
+
+    if n_samples <= 0:
+        return {"dropped_mask": np.zeros(0, dtype=bool)}
+
+    # how many consecutive samples correspond to the blackout window
+    window_len = int(np.ceil(burst_ms / max(sample_period_ms, 1)))
+    window_len = max(1, min(window_len, n_samples))
+
+    start = int(rng.integers(0, n_samples - window_len + 1))
+    mask = np.zeros(n_samples, dtype=bool)
+    mask[start : start + window_len] = True
+    return {"dropped_mask": mask, "start_idx": start, "window_len": window_len}

@@ -1,6 +1,6 @@
 # Week 06 – Smart Factory Model Reliability Report (Startup Demo)
 
-Generated: 2026-02-19T14:20:05
+Generated: 2026-03-11T14:55:06
 
 ## Summary
 
@@ -10,25 +10,46 @@ Safety Grade: **F** (worst effective accuracy=0.0000)
 
 ## Positives
 
-- Baseline accuracy on Smart Factory CSV: **0.8817**
-- Runs stress tests: noise, latency(drop/timeout), staleness(slow/fast), and failure modes.
-- Produces an Operating Envelope grid (noise vs latency) with PASS/FAIL boundary.
+- Profile: **industrial_wifi** (threshold=0.75, timeout_ms=120, drop_rate=0.05)
+- PyTorch MLP baseline accuracy: **0.8817**
+- Logistic Regression baseline accuracy: **0.9967**
+- Includes explicit combined-constraints tests (noise + latency + staleness).
+- Produced stress tests, operating envelope, regression artifacts, and prescriptive mitigations.
 
 ## Issues / Concerns
 
-- Worst effective accuracy observed: **0.0000** (Grade **F**)
-- Fast-world staleness and sensor failure modes can drop accuracy significantly.
-- Effective accuracy is the real deployment metric: late/missing decisions count as failures.
+- Worst effective accuracy observed (global): **0.0000** (Grade **F**)
+- Late/missing predictions are treated as failures.
+- Some latency conditions can collapse effective accuracy.
 
 ## Operating Envelope
 
-- The Operating Envelope shows safe vs unsafe regions:
-  - X-axis: latency delay
-  - Y-axis: noise level
-  - PASS/FAIL uses the effective-accuracy threshold.
+PASS/FAIL grid saved in `results/week06_operating_envelope.csv`.
+
+## Regression Check (V1 vs V2)
+
+Gold profile: industrial_wifi  | Current profile: industrial_wifi
+Baseline accuracy change: +0.000
+Worst effective accuracy change: +0.000
+Safe operating zone change: +0.000 (fraction of envelope cells passing)
+No major envelope change detected.
+
+## Required Mitigations (Fix-it Engine)
+
+## Required Mitigations (Fix-it Engine)
+
+- **Option A (Software):** Add a **50ms prediction buffer** (queue/pipeline) to tolerate real-time jitter.
+  - Reason: effective accuracy fell below threshold at ~150ms (eff=0.00%, threshold=75%).
+- **Option B (Hardware):** Improve **temp_c** sensor stability (reduce noise by ~0.1σ).
+  - Reason: temp_c had the largest accuracy drop during single-feature noise injection (Δ=0.000).
+
+(Profile used: `industrial_wifi`)
 
 ## Artifacts
 
 - Results CSV: `results/week06_product_demo_results.csv`
-- Envelope CSV: `results/week06_operating_envelope.csv`
+- Envelope CSV (MLP): `results/week06_operating_envelope.csv`
 - Dashboard: `results/master_dashboard.png`
+- Mitigations: `results/mitigations.md`
+- Regression JSON: `results/regression_report.json`
+- Regression Summary: `results/regression_summary.md`

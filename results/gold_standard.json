@@ -1,0 +1,8 @@
+{
+  "profile": "industrial_wifi",
+  "threshold": 0.75,
+  "baseline_accuracy": 0.8816666666666667,
+  "worst_effective_accuracy": 0.0,
+  "safe_zone_fraction": 0.6,
+  "envelope_csv": "results/week06_operating_envelope.csv"
+}
